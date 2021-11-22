@@ -6,7 +6,7 @@
 /*   By: wprintes <wilkp90@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:43:09 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/16 00:38:59 by wprintes         ###   ########.fr       */
+/*   Updated: 2021/11/18 21:28:39 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ int ft_printf(const char *s, ...)
     {
         if (s[count] == '%' && ft_strchr("cspdiuxX%", s[count + 1]))
         {
-            count++;
-            total = total + arg_flags((char *)s, count, paramets);
+            total = total + arg_flags((char *)s, count + 1, paramets);
             count++;
         }
-        total++;
-        write(1, &s[count],1);
+        else
+        {
+            write(1, &s[count],1);
+            total++;
+        }    
         count++;
     }
     va_end(paramets);
@@ -51,5 +53,7 @@ int arg_flags(char *s, int count, va_list args)
         total = ft_putchar(va_arg(args, int));
     else if (s[count] == 'd')
         total = ft_putstr(ft_itoa(va_arg(args, int)));
+    else if (s[count] == 'x')
+        total = ft_putstr(dec_to_hex(va_arg(args, int)));
     return(total);
 }

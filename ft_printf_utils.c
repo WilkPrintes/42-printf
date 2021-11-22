@@ -6,16 +6,16 @@
 /*   By: wprintes <wilkp90@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:57:25 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/16 00:40:41 by wprintes         ###   ########.fr       */
+/*   Updated: 2021/11/16 14:44:42 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-size_t	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-    size_t count;
+    int count;
 
     count = 0;
 	if (s)
@@ -26,10 +26,12 @@ size_t	ft_putstr(char *s)
 			count++;
 		}
 	}
+	else
+		return (ft_putstr("(null)"));
     return (count);
 }
 
-int	ft_putchar(char c)
+int	ft_putchar(const int c)
 {
 	write(1, &c, 1);
     return (1);

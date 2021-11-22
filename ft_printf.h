@@ -6,7 +6,7 @@
 /*   By: wprintes <wilkp90@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:43:15 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/16 00:25:47 by wprintes         ###   ########.fr       */
+/*   Updated: 2021/11/18 22:00:19 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 # include <stdlib.h>
 
 int     ft_printf(const char *s, ...);
-size_t    ft_putstr(char *s);
+int    ft_putstr(char *s);
 size_t  ft_strlen(const char *s);
-int    ft_putchar(char c);
+int    ft_putchar(const int c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *str);
+char    *dec_to_hex(int a);
