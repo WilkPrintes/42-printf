@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dec_to_hex.c                                       :+:      :+:    :+:   */
+/*   dec_to_hex_l.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 21:30:10 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/26 11:50:05 by wprintes         ###   ########.fr       */
+/*   Created: 2021/11/26 03:17:23 by coder             #+#    #+#             */
+/*   Updated: 2021/11/26 11:50:01 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	dec_to_hex(unsigned int a, int cap)
+int	dec_to_hex_l(unsigned long a, int cap)
 {
 	char			*result;
-	unsigned int	temp;
+	unsigned long	temp;
 	int				places;
 	int				index;
 
 	index = 0;
 	places = 0;
+	if (a == 0 && IS_MACOS == 0)
+		return (ft_putstr("(nil)"));
+	ft_putstr("0x");
 	if (a < 16)
 	{
 		if (a < 10)
 			ft_putchar (a + '0');
 		else
 			ft_putchar (a + cap);
-		return (1);
+		return (3);
 	}
 	temp = a;
 	while (temp > 0)
@@ -50,5 +53,5 @@ int	dec_to_hex(unsigned int a, int cap)
 	}
 	places = ft_putstr(result);
 	free(result);
-	return (places);
+	return (places + 2);
 }

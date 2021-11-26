@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wprintes <wilkp90@gmail.com>               +#+  +:+       +#+        */
+/*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:57:25 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/16 14:44:42 by wprintes         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:50:10 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_putstr(char *s)
 {
-    int count;
+	int	count;
 
-    count = 0;
+	count = 0;
 	if (s)
 	{
 		while (s[count] != '\0')
@@ -28,13 +27,13 @@ int	ft_putstr(char *s)
 	}
 	else
 		return (ft_putstr("(null)"));
-    return (count);
+	return (count);
 }
 
 int	ft_putchar(const int c)
 {
 	write(1, &c, 1);
-    return (1);
+	return (1);
 }
 
 size_t	ft_strlen(const char *s)
