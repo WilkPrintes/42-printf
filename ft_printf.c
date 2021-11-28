@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:43:09 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/26 11:37:00 by wprintes         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:03:29 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ int	arg_flags(char *s, int count, va_list args)
 	else if (s[count] == 'p')
 		total = dec_to_hex_l((unsigned long int) va_arg(args, void *), 87);
 	if (temp != NULL)
-	{
 		total = ft_putstr(temp);
-		free(temp);
-	}
+	free(temp);
 	return (total);
 }
