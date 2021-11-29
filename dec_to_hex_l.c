@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 03:17:23 by wprintes          #+#    #+#             */
-/*   Updated: 2021/11/28 20:41:15 by wprintes         ###   ########.fr       */
+/*   Updated: 2021/11/28 20:59:26 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	dec_to_hex_l(unsigned long a, int cap)
 	places = 0;
 	if (a == 0 && IS_MACOS == 0)
 		return (ft_putstr("(nil)"));
+	else if (a == 0 && IS_MACOS == 1)
+		return (ft_putstr("0x0"));
 	ft_putstr("0x");
 	places = hex_places_l(a);
 	result = malloc(sizeof(char) * places + 1);
@@ -32,11 +34,10 @@ int	dec_to_hex_l(unsigned long a, int cap)
 	{
 		temp = (a % 16);
 		if (temp < 10)
-			result[places - 1] = temp + '0';
+			result[--places] = temp + '0';
 		else
-			result[places - 1] = (cap + temp);
+			result[--places] = (cap + temp);
 		a = a / 16;
-		places--;
 	}
 	places = ft_putstr(result);
 	free(result);
